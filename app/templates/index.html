@@ -23,7 +23,7 @@
         <form id="form" method="post" action="/">
           <div class="form-row">
             <div class="col-sm">
-              <input type="text" class="form-control" placeholder="Your Url" required>
+		    <input type="text" class="form-control" placeholder="Your Url" name="link" required {% if link %} value="{{ link }}" {% endif %}>
             </div>
             <div class="col-sm-auto">
               <button type="submit" class="btn btn-dark w-100">Shorten It</button>
@@ -31,10 +31,14 @@
           </div>
         </form>
 
+	{% if new_link %}
+
         <div class="your-url">
           <p><b>Your Shortened Url:</b></p>
-          <p onclick="copyToClip()" id="myUrl">https://google.com</p>
+	  <p id="myUrl">{{ new_link }}</p>
         </div>
+
+	{% endif %}
 
       </div>
 
